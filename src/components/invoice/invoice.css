@@ -17,6 +17,7 @@
     height: 96%;
     margin-left: 5%;
     margin-right: 5%;
+    padding:10px;
 }
 .company{
     font-size: 12px;
@@ -69,7 +70,7 @@ color:#8d8d8e;
     padding-bottom: 15px;
   }
   .total{
-      margin: 10px;
+      margin-top: 10px;
       text-align: right;
       background-color: #efeff0;
   }
