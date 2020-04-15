@@ -26,11 +26,13 @@ export default class Invoice extends React.Component{
     render(){
         if(this.state.invoice)
         var {data}=this.state.invoice;
+        var subtotal=0;
+        var currency="";
         return(
             this.state.invoice?( <div className="invoice">
             {/*this.state.invoice&&this.state.invoice.data.client.name*/}
                 <div className="invoice_str">
-                    <div class="company">
+                    <div className="company">
                         <img src={data.company.logo} alt={data.company.name} /><br/>
                         {data.company.name}<br/>
                         {data.company.address}<br/>
@@ -66,19 +68,51 @@ export default class Invoice extends React.Component{
                     </div>
 
                     <div className="inv_table">
+                        <table>
+                            <tr>
+                                <th width="70%">Description</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th>Total</th>
+                            </tr>
+
+                            
+                                {data.order_items.map((item)=>{
+                                    subtotal+=parseInt(item.total);
+                                    currency=item.currency;
+                                   return(
+                                    <tr> 
+                                   <td><strong style={{color:"#000"}}>{item.name}</strong><br/>{item.description}</td>
+                                   <td>{item.quantity}</td>
+                                    <td>{item.currency+item.amount}</td>
+                                    <td>{item.currency+item.total}</td>
+                                    </tr>)
+                                })}
+                            
+                        </table>
 
                     </div>
 
                     <div className="total">
+                        <table>
+                            <tr><td><strong>Sub Total:</strong></td> <td>{currency+subtotal}</td></tr>
+                            <tr><td><strong>Taxes(10%):</strong></td> <td>{currency+(.1*.95*subtotal)}</td></tr>
+                            <tr><td><strong>Discount(5%):</strong></td> <td>{currency+(subtotal/20)}</td></tr>
+                            <br/>
+                            <tr><td><strong>Total:</strong></td> <td><strong>{currency+(1.1*.95*subtotal)}</strong></td></tr>
+                        </table>
 
                     </div>
 
                     <div className="tc">
-
+                        <h6>Terms and Conditions:</h6>
+                        <p>Lorem ipsum dolor sit amet, ipsum putant invenire an cum. Eu debitis lucilius pri, ne eum iusto ocurreret argumentum. Ei vim fabellas volutpat, an elit iriure aliquando eum, sea accusata principes ei. Similique scripserit ex vel.</p>
                     </div>
 
                     <div className="action">
-
+                        <button>Print</button>
+                        &nbsp;
+                        <button>Cancel</button>
                     </div>
 
                 </div>    

@@ -12,10 +12,9 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    width: 90%;
     top: 50%;
     bottom: 50%;
-    height: 90%;
+    height: 96%;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -52,4 +51,73 @@ h6{
      border: 1px solid transparent;
      border-radius:2px;
      color:#fff;
+}
+.inv_table>table{
+    margin-top: 50px;;
+    width:100%;
+    text-align: left;
+    padding: 5px;
+    font-size: 12px;
+}
+.inv_table>table:nth-child(1){
+color:#8d8d8e;
+
+}
+.inv_table>table th,.inv_table>table td{
+    border-top: 2px solid #ececed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .total{
+      margin: 10px;
+      text-align: right;
+      background-color: #efeff0;
+  }
+ 
+  .total table{
+      max-width: 40px;
+      font-size: 12px;
+      float: right !important;
+      padding: 10px;
+  }
+.total>table>tr:last-child{
+    color:#5eb3ce !important;
+}
+.tc{
+    text-align: left;
+}
+.tc p{
+    font-size: 12px;
+}
+.tc>h6{
+    margin-bottom: 0px;
+}
+.action{
+    width: 100%;
+    background-color: #ececed;
+    color:#fff;
+    bottom: 0px;
+    position: absolute;
+    min-height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+.action button:nth-child(1){
+    color:#fff;
+    padding:5px;
+    padding-left:15px;
+    padding-right: 15px;;
+
+    background-color:#5eb3ce ;
+    border: 1px solid transparent;
+    border-radius: 3px;;
+}
+.action button:last-child{
+    background-color:#8d8d8e; 
+    color:#fff;
+    padding:5px;
+    padding-left:15px;
+    padding-right: 15px;
+    border: 1px solid transparent;
+    border-radius: 3px;;
 }
