@@ -53,6 +53,10 @@ h6{
      border-radius:2px;
      color:#fff;
 }
+.inv>p{
+    color:#5eb3ce ;
+    font-size:11px;
+}
 .inv_table>table{
     margin-top: 50px;;
     width:100%;

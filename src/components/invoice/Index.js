@@ -62,7 +62,7 @@ export default class Invoice extends React.Component{
 
                         <div className="inv">
                             <h6>INVOICE NUMBER #{data.order.invoice_number} </h6>
-                            <p style={{color:"#5eb3ce" ,fontSize:"11px"}}><strong >TOTAL DUE : {data.order.currency+data.order.amount}</strong> </p>
+                            <p ><strong >TOTAL DUE : {data.order.currency+data.order.amount}</strong> </p>
                         </div>
 
                     </div>
