@@ -33,7 +33,7 @@ export default class Invoice extends React.Component{
             {/*this.state.invoice&&this.state.invoice.data.client.name*/}
                 <div className="invoice_str">
                     <div className="company">
-                        <img src={data.company.logo} alt={data.company.name} /><br/>
+                        <img src={data.company.logo} alt={data.company.name} width="50px"/><br/>
                         {data.company.name}<br/>
                         {data.company.address}<br/>
                         {data.company.email}<br/>
