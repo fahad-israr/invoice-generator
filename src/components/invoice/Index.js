@@ -14,9 +14,22 @@ export default class Invoice extends React.Component{
             method: 'get',
             headers: {'Content-Type': 'application/json'}
         }).then(response=>{response.json().then(data=>{if(data){this.setState({invoice:data}) 
-    }})})
+    }})})}
         
-        }
+    generatePdf=()=>{
+        console.log(document.getElementsByClassName("invoice_str")[0].innerHTML);
+        fetch('http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice/pdf/generate', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({html:document.getElementsByClassName("invoice")[0].innerHTML })
+          }).then(response=>response.json()).then(data=>{
+            console.log(data.data.filename);
+            window.open(`http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice/pdf/${data.data.filename}`);
+
+    })
+}
+
+
 
     componentDidMount(){
         this.fetchInvoice();
@@ -109,13 +122,12 @@ export default class Invoice extends React.Component{
                         <p>Lorem ipsum dolor sit amet, ipsum putant invenire an cum. Eu debitis lucilius pri, ne eum iusto ocurreret argumentum. Ei vim fabellas volutpat, an elit iriure aliquando eum, sea accusata principes ei. Similique scripserit ex vel.</p>
                     </div>
 
-                    <div className="action">
-                        <button>Print</button>
-                        &nbsp;
-                        <button>Cancel</button>
-                    </div>
-
                 </div>    
+                <div className="action">
+                        <button onClick={this.generatePdf} title="Print Invoice">Print</button>
+                        &nbsp;
+                        <button title="Cancel">Cancel</button>
+                    </div>
             
             </div>):(<div>Unable to reach our servers.Please Check your Internet Connection</div>)
         )

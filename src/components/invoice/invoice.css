@@ -117,6 +117,10 @@ color:#8d8d8e;
     border: 1px solid transparent;
     border-radius: 3px;;
 }
+.action button:nth-child(1):hover{
+    background-color:#54a1b9 ;
+    cursor: pointer;
+}
 .action button:last-child{
     background-color:#8d8d8e; 
     color:#fff;
@@ -125,4 +129,8 @@ color:#8d8d8e;
     padding-right: 15px;
     border: 1px solid transparent;
     border-radius: 3px;;
+}
+.action button:last-child:hover{
+    background-color: #7e7e7f;
+    cursor: pointer;
 }
