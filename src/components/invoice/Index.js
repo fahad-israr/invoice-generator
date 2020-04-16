@@ -18,6 +18,8 @@ export default class Invoice extends React.Component{
         
     generatePdf=()=>{
         console.log(document.getElementsByClassName("invoice_str")[0].innerHTML);
+        var fsize=prompt("Enter font for company Name");
+        document.getElementById("company_name").setAttribute("style",`font-size:${fsize};`);
         fetch('http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice/pdf/generate', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -47,7 +49,7 @@ export default class Invoice extends React.Component{
                 <div className="invoice_str">
                     <div className="company">
                         <img src={data.company.logo} alt={data.company.name} width="50px"/><br/>
-                        {data.company.name}<br/>
+                        <text id="company_name">{data.company.name} </text><br/>
                         {data.company.address}<br/>
                         {data.company.email}<br/>
                         {data.company.mobile}
