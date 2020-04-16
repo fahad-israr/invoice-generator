@@ -1,5 +1,12 @@
 import React from 'react';
 import './invoice.css';
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
+const override = css`
+display:inline;
+margin-top: 0 auto;
+border-color: red;
+`;
 export default class Invoice extends React.Component{
     constructor(){
 		super();
@@ -8,6 +15,7 @@ export default class Invoice extends React.Component{
         };
     }
 
+  
     fetchInvoice=()=>{
 
         fetch('http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice', {
@@ -130,8 +138,13 @@ export default class Invoice extends React.Component{
                         &nbsp;
                         <button title="Cancel">Cancel</button>
                     </div>
+                    
+                    
             
-            </div>):(<div>Unable to reach our servers.Please Check your Internet Connection</div>)
+            </div>):(<div className='sweet-loading'>
+					        <ScaleLoader css={override}   sizeUnit={"px"}  color={'#0099cc'} size={80} height={35} width={12}  radius={2} loading={true}/>
+                            <div style={{fontSize:"30px"}}>Loading...</div>
+      						</div> )
         )
     }
 
