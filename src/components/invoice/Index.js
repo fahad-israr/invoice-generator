@@ -21,7 +21,7 @@ export default class Invoice extends React.Component{
         fetch('http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice/pdf/generate', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({html:document.getElementsByClassName("invoice")[0].innerHTML })
+            body: JSON.stringify({html:document.getElementsByClassName("invoice_str")[0].innerHTML })
           }).then(response=>response.json()).then(data=>{
             console.log(data.data.filename);
             window.open(`http://ec2-13-231-224-159.ap-northeast-1.compute.amazonaws.com:8080/api/invoice/pdf/${data.data.filename}`);
